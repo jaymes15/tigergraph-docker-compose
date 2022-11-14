@@ -1,0 +1,16 @@
+version: "3.8"
+services:
+  tigergraph_server:
+    image: tigergraphbootcamp/tigergraph-image:latest
+    ports:
+      - "14022:22"
+      - "3306:3306"
+      - "9000:9000"
+      - "14240:14240"
+    ulimits:
+      nofile:
+        soft: 1000000
+        hard: 1000000
+    volumes:
+      - ./data:/home/tigergraph/mydata
+    container_name: tigergraph_server
